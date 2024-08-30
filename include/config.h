@@ -459,7 +459,11 @@
    problems with complex programs). You need to recompile the target binary
    after changing this - otherwise, SEGVs may ensue. */
 
-#define MAP_SIZE_POW2 16
+#ifdef MAP_SIZE_POW2_CUSTOM
+#define MAP_SIZE_POW2       MAP_SIZE_POW2_CUSTOM
+#else
+#define MAP_SIZE_POW2       16
+#endif
 
 /* Do not change this unless you really know what you are doing. */
 

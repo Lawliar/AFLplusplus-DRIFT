@@ -163,6 +163,10 @@ else
   CFLAGS ?= -O2 $(CFLAGS_OPT) # -funroll-loops is slower on modern compilers
 endif
 
+ifdef bms_pow2
+    CFLAGS ?= -DMAP_SIZE_POW2_CUSTOM=$(bms_pow2)
+endif
+
 override CFLAGS += -g -Wno-pointer-sign -Wno-variadic-macros -Wall -Wextra -Wno-pointer-arith \
 			-fPIC -I include/ -DAFL_PATH=\"$(HELPER_PATH)\"  \
 			-DBIN_PATH=\"$(BIN_PATH)\" -DDOC_PATH=\"$(DOC_PATH)\"
