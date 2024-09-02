@@ -468,6 +468,23 @@
 /* Do not change this unless you really know what you are doing. */
 
 #define MAP_SIZE (1U << MAP_SIZE_POW2)
+
+#if MAP_SIZE == (1024 * 64)
+#define AFL_BITMAP_MASK  0xffff
+#elif MAP_SIZE == (1024 * 32)
+#define AFL_BITMAP_MASK  0x7fff
+#elif MAP_SIZE == (1024 * 16)
+#define AFL_BITMAP_MASK  0x3fff
+#elif MAP_SIZE == (1024 * 8)
+#define AFL_BITMAP_MASK  0x1fff
+#elif MAP_SIZE == (1024 * 4)
+#define AFL_BITMAP_MASK  0x0fff
+#elif MAP_SIZE == (1024 * 2)
+#define AFL_BITMAP_MASK  0x07ff
+#elif MAP_SIZE == (1024 * 1)
+#define AFL_BITMAP_MASK  0x03ff
+#endif
+
 #if MAP_SIZE <= 2097152
   #define MAP_INITIAL_SIZE (2 << 20)  // = 2097152
 #else
