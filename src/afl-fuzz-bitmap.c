@@ -678,7 +678,7 @@ u8 __attribute__((hot)) save_if_interesting(afl_state_t *afl, void *mem,
 
         simplify_trace(afl, afl->fsrv.trace_bits);
 
-        if (!has_new_bits(afl, afl->virgin_tmout)) { return keeping; }
+        //if (!has_new_bits(afl, afl->virgin_tmout)) { return keeping; }
 
       }
 
@@ -818,7 +818,7 @@ u8 __attribute__((hot)) save_if_interesting(afl_state_t *afl, void *mem,
 
         simplify_trace(afl, afl->fsrv.trace_bits);
 
-        if (!has_new_bits(afl, afl->virgin_crash)) { return keeping; }
+        //if (!has_new_bits(afl, afl->virgin_crash)) { return keeping; }
 
       }
 
